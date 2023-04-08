@@ -64,22 +64,22 @@ export const ProveedoresPage = () => {
     }
 
     // delete category
-    // const handleDelete = async (pId) => {
-    //     try {
-    //         const { data } = await axios.delete(
-    //             `/api/v1/productLG/delete-productLG/${pId}`
-    //         )
-    //         if (data.success) {
-    //             toast.success('category is deleted')
+    const handleDelete = async (pId) => {
+        try {
+            const { data } = await axios.delete(
+                `${BACKENDURL}/api/supplierLG/supplierLG/${pId}`
+            )
+            if (data.success) {
+                toast.success('category is deleted')
 
-    //             getAllCategory()
-    //         } else {
-    //             toast.error(data.message)
-    //         }
-    //     } catch (error) {
-    //         toast.error('Somtihing went wrong')
-    //     }
-    // }
+                getAllCategory()
+            } else {
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error('Somtihing went wrong')
+        }
+    }
     return (
         <AdminLayout >
             <Content style={{ margin: '0 8px' }}>
@@ -135,34 +135,34 @@ export const ProveedoresPage = () => {
                                                 <td>{v.email2}</td>
 
                                                 <td>
-                                                    { /* <button
-                                                    className="btn btn-primary"
-                                                    onClick={() => {
-                                                        setVisible(true)
-                                                        setUpdatedName(v.name)
-                                                        setSelected(v)
-                                                    }} style={{
-                                                        padding: 2,
-                                                        width: 80,
-                                                        margin: 2
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        onClick={() => {
+                                                            setVisible(true)
+                                                            setUpdatedName(v.name)
+                                                            setSelected(v)
+                                                        }} style={{
+                                                            padding: 2,
+                                                            width: 80,
+                                                            margin: 2
 
-                                                    }}
-                                                >
+                                                        }}
+                                                    >
                                                     Edit
-                                                </button>
-                                                <button
-                                                    className="btn btn-danger"
-                                                    onClick={() => {
-                                                        handleDelete(v._id)
-                                                    }}style={{
-                                                        padding: 1,
-                                                        width: 80,
-                                                        margin: 2
-                                                    }}
-                                                >
+                                                    </button>
+                                                    <button
+                                                        className="btn btn-danger"
+                                                        onClick={() => {
+                                                            handleDelete(v._id)
+                                                        }}style={{
+                                                            padding: 1,
+                                                            width: 80,
+                                                            margin: 2
+                                                        }}
+                                                    >
                                                     Eliminar
-                                                </button>
-                                                */}
+                                                    </button>
+
                                                 </td>
                                             </tr>
                                         </>
